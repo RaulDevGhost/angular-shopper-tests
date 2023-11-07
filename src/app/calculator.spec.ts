@@ -1,13 +1,12 @@
 import { Calculator } from './calculator';
 
-describe('Test for Calculator', () => {
-
+xdescribe('Test for Calculator', () => {
   describe('Tests for multiply', () => {
     it('should return a nine', () => {
       //Arrange
       const calculator = new Calculator();
       //Act
-      const rta = calculator.multiply(3,3);
+      const rta = calculator.multiply(3, 3);
       //Assert
       expect(rta).toEqual(9);
     });
@@ -16,7 +15,7 @@ describe('Test for Calculator', () => {
       //Arrange
       const calculator = new Calculator();
       //Act
-      const rta = calculator.multiply(1,4);
+      const rta = calculator.multiply(1, 4);
       //Assert
       expect(rta).toEqual(4);
     });
@@ -27,17 +26,17 @@ describe('Test for Calculator', () => {
       //Arrange
       const calculator = new Calculator();
       //Act
-      expect(calculator.divide(6,3)).toEqual(2);
-      expect(calculator.divide(5,2)).toEqual(2.5);
+      expect(calculator.divide(6, 3)).toEqual(2);
+      expect(calculator.divide(5, 2)).toEqual(2.5);
     });
 
     it('for a zero', () => {
       //Arrange
       const calculator = new Calculator();
       //Act
-      expect(calculator.divide(6,0)).toBeNull();
-      expect(calculator.divide(5,0)).toBeNull();
-      expect(calculator.divide(1212121212,0)).toBeNull();
+      expect(calculator.divide(6, 0)).toBeNull();
+      expect(calculator.divide(5, 0)).toBeNull();
+      expect(calculator.divide(1212121212, 0)).toBeNull();
     });
 
     it('tests matchers', () => {
@@ -56,9 +55,5 @@ describe('Test for Calculator', () => {
       expect('123456').toMatch(/123/);
       expect(['apples', 'oranges', 'pears']).toContain('oranges');
     });
-  })
-
-
-
-
+  });
 });

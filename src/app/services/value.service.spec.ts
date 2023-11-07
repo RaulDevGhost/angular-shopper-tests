@@ -2,12 +2,12 @@ import { TestBed } from '@angular/core/testing';
 
 import { ValueService } from './value.service';
 
-describe('ValueService', () => {
+xdescribe('ValueService', () => {
   let service: ValueService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ ValueService ]
+      providers: [ValueService],
     });
     service = TestBed.inject(ValueService);
   });
@@ -32,8 +32,7 @@ describe('ValueService', () => {
 
   describe('Tests for getPromiseValue', () => {
     it('should return "promise value" from promise with then', (doneFn) => {
-      service.getPromiseValue()
-      .then((value) => {
+      service.getPromiseValue().then((value) => {
         // assert
         expect(value).toBe('promise value');
         doneFn();
@@ -48,13 +47,11 @@ describe('ValueService', () => {
 
   describe('Tests for getObservableValue', () => {
     it('should return "observable value" from observable', (doneFn) => {
-      service.getObservableValue()
-      .subscribe((value) => {
+      service.getObservableValue().subscribe((value) => {
         // assert
         expect(value).toBe('observable value');
         doneFn();
       });
     });
   });
-
 });

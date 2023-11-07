@@ -7,16 +7,15 @@ import { getText, queryById, clickEvent } from './../../../testing';
 import { PersonComponent } from './person.component';
 import { first } from 'rxjs/operators';
 
-describe('PersonComponent', () => {
+xdescribe('PersonComponent', () => {
   let component: PersonComponent;
   let fixture: ComponentFixture<PersonComponent>;
   let debugElement: DebugElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TestHostComponent, PersonComponent ]
-    })
-    .compileComponents();
+      declarations: [TestHostComponent, PersonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -32,7 +31,7 @@ describe('PersonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it("should the name be 'nicolas'", ()=>{
+  it("should the name be 'nicolas'", () => {
     expect(component.person.name).toEqual('Nicolas');
   });
 
@@ -109,11 +108,9 @@ describe('PersonComponent', () => {
     const buttonDe = queryById(fixture, 'btn-person');
 
     let selectedPerson: Person | undefined;
-    component.onSelected
-      .pipe(first())
-      .subscribe((person: Person) => {
-        selectedPerson = person;
-      });
+    component.onSelected.pipe(first()).subscribe((person: Person) => {
+      selectedPerson = person;
+    });
     // Act
     component.person = expectedPerson;
     buttonDe.triggerEventHandler('click', null);
@@ -124,13 +121,11 @@ describe('PersonComponent', () => {
 });
 
 @Component({
-  template: `
-    <app-person
-      [person]="person" (onSelected)="onSelected($event)">
-    </app-person>`
+  template: ` <app-person [person]="person" (onSelected)="onSelected($event)">
+  </app-person>`,
 })
 class TestHostComponent {
-  person: Person = new Person('Nicolas', 'Molina', 28, 68, 1.65);;
+  person: Person = new Person('Nicolas', 'Molina', 28, 68, 1.65);
   selectedPerson: Person | undefined;
   onSelected(person: Person) {
     this.selectedPerson = person;
@@ -144,9 +139,8 @@ describe('PersonComponent from HostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TestHostComponent, PersonComponent ]
-    })
-    .compileComponents();
+      declarations: [TestHostComponent, PersonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

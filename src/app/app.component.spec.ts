@@ -5,12 +5,8 @@ import { AppComponent } from './app.component';
 xdescribe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule],
+      declarations: [AppComponent],
     }).compileComponents();
   });
 
@@ -30,6 +26,8 @@ xdescribe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ng-testing-services app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain(
+      'ng-testing-services app is running!'
+    );
   });
 });
